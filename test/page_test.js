@@ -62,7 +62,7 @@ describe('Run web app \'page test\' using webdriverjs/Selenium.', function() {
 
     var client = {};
 
-    before(function() {
+    before(function(done) {
         // console.log('--before--');
         this.timeout(1000000);
 
@@ -70,7 +70,7 @@ describe('Run web app \'page test\' using webdriverjs/Selenium.', function() {
         client = webdriverjs.remote(options);
 
         // start the session
-        client.init();
+        client.init(done);
     });
 
     after(function(done) {

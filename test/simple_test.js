@@ -79,8 +79,7 @@ describe('Run a \'simple test\' using webdriverjs/Selenium.', function() {
             .call(callback);
         });
 
-        client.init()
-        .call(done);
+        client.init(done);
     });
 
     beforeEach(function(done) {

@@ -62,9 +62,9 @@ else
 
 describe('Run a \'simple internet\' test using webdriverjs/Selenium.', function() {
 
-    before(function(){
+    before(function(done){
             client = webdriverjs.remote(options);
-            client.init();
+            client.init(done);
     });
 
     it('should be able to view page on internet, checks the title only using TDD style check', function(done) {
