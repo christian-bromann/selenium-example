@@ -8,13 +8,9 @@ before_install:
     - echo "$(date +%H:%M:%S.%N) - before_install begin"
     # download selenium server
     - curl -O http://selenium.googlecode.com/files/selenium-server-standalone-2.39.0.jar
-    # Download and install the chromedriver to be able to execute the browser tests locally
-    - curl http://chromedriver.storage.googleapis.com/2.8/chromedriver_linux64.zip > chromedriver_linux64.zip && unzip chromedriver_linux64.zip && sudo cp chromedriver /usr/local/bin && sudo chmod +rx chromedriver /usr/local/bin/chromedriver
     # start this before installation to let the server be up and ready without extra waiting time.
     - java -jar selenium-server-standalone-2.39.0.jar -Dwebdriver.chrome.driver=./chromedriver &
     # install phantomjs, too:
-    - sudo apt-get install phantomjs
-    - sleep 10
     - echo "$(date +%H:%M:%S.%N) - before_install end"
 
 
@@ -40,8 +36,8 @@ addons:
 
 env:
   global:
-    - secure: "EvQvxbIQRYDF2NvRDlC8tLeoKabuhi9D+d9y89jsVniyAkMd6HXzU6N+/rsKWnLSYg4fDzadHvXUN+ge9BP1JwMFsH1OOCifBCQQLfnrZQ1phnQEhwl8LDQHVZbRv9Wsk474+NcGkGiDOrjUjbadR6YCrisPt3CHAB1XQw4zIzE="
-    - secure: "sAGCSM9rCbANjWeeLnF8i2y450c4EPGUuhlOeFCxnlisduDkiQ6sZgusOlL2NiPQwmHTCcVNn7reBcuUGg1NZJfRt4NMju9OtqzS/JLk2RW9+J3zUkDrx5tQhaivWlThakRAIpNeHpCBEL9tWk68pDZw+Bfc1e1Jh4H3ji91KtI="
+    - SAUCE_USERNAME=christian_bromann
+    - SAUCE_ACCESS_KEY=76eb06d5-252b-4e14-b67b-af4f30ff882c
 
   matrix:
 #     - _BROWSER: "chrome"
