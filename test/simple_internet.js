@@ -62,13 +62,13 @@ else
 
 describe('Run a \'simple internet\' test using webdriverjs/Selenium.', function() {
 
-    before(function(done){
+    before(function(){
             client = webdriverjs.remote(options);
-            client.init(done);
+            client.init();
     });
 
     it('should be able to view page on internet, checks the title only using TDD style check', function(done) {
-        this.timeout(60000); // some time is needed for the browser start up, on my system 3000 should work, too.
+        this.timeout(1000000); // some time is needed for the browser start up, on my system 3000 should work, too.
 
         client
         .url('https://google.com')

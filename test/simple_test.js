@@ -66,7 +66,7 @@ describe('Run a \'simple test\' using webdriverjs/Selenium.', function() {
     var client = {};
 
     before(function(done) {
-        this.timeout(60000);
+        this.timeout(1000000);
         client = webdriverjs.remote(options);
 
         // Add a helper command
@@ -84,14 +84,18 @@ describe('Run a \'simple test\' using webdriverjs/Selenium.', function() {
     });
 
     beforeEach(function(done) {
-        this.timeout(30000); // some time is needed for the browser start up, on my system 3000 should work, too.
+        this.timeout(1000000); // some time is needed for the browser start up, on my system 3000 should work, too.
         // Navigate to the URL for each test
         client.url('http://localhost:3000')
         .call(done);
     });
 
     it('should be able to view the home page', function(done) {
-        client.hasText('#title', 'Library')
+        client.getText('#title', function(err, result) {
+            assert.strictEqual(err, null);
+            assert.strictEqual(result, 'Library'); // TDD
+            expect(result).to.have.string('Library'); // BDD
+        })
         .call(done);
     });
 
