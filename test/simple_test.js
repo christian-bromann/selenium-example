@@ -39,11 +39,11 @@ if ((process.env.TRAVIS === 'true') && (process.env.TEST_RUN_LOCAL !== 'true')) 
             'selenium-version': SELENIUMVERSION
         },
         // for w/o sauce connect
-        //      host: 'ondemand.saucelabs.com',
-        //      port: 80,
+             host: 'ondemand.saucelabs.com',
+             port: 80,
         // use with sauce connect:
-        host: 'localhost',
-        port: 4445,
+        // host: 'localhost',
+        // port: 4445,
         user: process.env.SAUCE_USERNAME,
         key: process.env.SAUCE_ACCESS_KEY,
         logLevel: 'verbose'
